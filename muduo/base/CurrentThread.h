@@ -8,45 +8,43 @@
 
 namespace muduo
 {
-namespace CurrentThread
-{
-  // internal
-  extern __thread int t_cachedTid;
-  extern __thread char t_tidString[32];
-  extern __thread int t_tidStringLength;
-  extern __thread const char* t_threadName;
-  void cacheTid();
-
-  inline int tid()
+  namespace CurrentThread
   {
-    if (__builtin_expect(t_cachedTid == 0, 0))
+    // internal
+    extern __thread int t_cachedTid;
+    extern __thread char t_tidString[32];
+    extern __thread int t_tidStringLength;
+    extern __thread const char* t_threadName;
+    void cacheTid();
+
+    inline int tid()
     {
-      cacheTid();
+      if(__builtin_expect(t_cachedTid == 0,0 ))  //t_cachedTid 为0的概率大
+      {
+        cacheTid();
+      }
+      return t_cachedTid;
     }
-    return t_cachedTid;
-  }
+    inline const char* tidString()  //for logging
+    {
+      return t_tidString;
+    }
+    inline int tidStringLength()   //for logging
+    {
+      return t_tidStringLength;
+    }
+    inline const char* name()
+    {
+      return t_threadName;
+    }
+    bool isMainThread();
 
-  inline const char* tidString() // for logging
-  {
-    return t_tidString;
-  }
+    void sleepUsec(int64_t usec);  //for testing
 
-  inline int tidStringLength() // for logging
-  {
-    return t_tidStringLength;
-  }
+    string stackTrace(bool demangle);
 
-  inline const char* name()
-  {
-    return t_threadName;
-  }
+  } // namespace CurrentThread
+  
 
-  bool isMainThread();
-
-  void sleepUsec(int64_t usec);  // for testing
-
-  string stackTrace(bool demangle);
-}  // namespace CurrentThread
-}  // namespace muduo
-
-#endif  // MUDUO_BASE_CURRENTTHREAD_H
+} // namespace muduo
+#endif //MUDUO_BASE_CURRENTTHREAD_H
