@@ -11,6 +11,7 @@ namespace muduo
   namespace CurrentThread
   {
     // internal
+    // _thread修饰的变量是线程局部存储的
     extern __thread int t_cachedTid;   
     extern __thread char t_tidString[32];
     extern __thread int t_tidStringLength;
