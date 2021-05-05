@@ -12,8 +12,9 @@ namespace muduo
 {
 namespace CurrentThread
 {
-__thread int t_cachedTid=0;
-__thread char t_tidString[32];
+  // __thread修饰的变量是线程局部存储的。
+__thread int t_cachedTid=0;    //线程真实pid（tid）的缓存
+__thread char t_tidString[32];  //这是tid的字符串表示形式
 __thread int t_tidStringLength =6;
 __thread const char* t_threadName ="unkown";
 static_assert(std::is_same<int ,pid_t>::value ,"pid_t should be int"); //判断是否相同类型
