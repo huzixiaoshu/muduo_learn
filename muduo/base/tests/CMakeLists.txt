@@ -10,6 +10,9 @@ target_link_libraries(BlockingQueue_unittest  muduo_base)
 add_executable ( boundedblockingqueue_unittest  BoundedBlockingQueue_test.cc )
 target_link_libraries(boundedblockingqueue_unittest  muduo_base)
 
+add_executable ( Singleton_unittest  Singleton_test.cc )
+target_link_libraries(Singleton_unittest  muduo_base)
+
 add_executable ( exception_test Exception_test.cc )
 target_link_libraries(exception_test  muduo_base)
 
