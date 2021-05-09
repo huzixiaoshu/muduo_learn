@@ -10,17 +10,23 @@ target_link_libraries(BlockingQueue_unittest  muduo_base)
 add_executable ( boundedblockingqueue_unittest  BoundedBlockingQueue_test.cc )
 target_link_libraries(boundedblockingqueue_unittest  muduo_base)
 
-add_executable ( Singleton_unittest  Singleton_test.cc )
-target_link_libraries(Singleton_unittest  muduo_base)
-
 add_executable ( exception_test Exception_test.cc )
 target_link_libraries(exception_test  muduo_base)
 
 add_executable ( mutex_test Mutex_test.cc )
 target_link_libraries(mutex_test  muduo_base)
 
+add_executable ( Singleton_unittest  Singleton_test.cc )
+target_link_libraries(Singleton_unittest  muduo_base)
+
+add_executable ( SingletonThreadLocal_unittest SingletonThreadLocal_test.cc)
+target_link_libraries(SingletonThreadLocal_unittest  muduo_base)
+
 add_executable ( thread_test Thread_test.cc )
 target_link_libraries(thread_test  muduo_base)
+
+add_executable ( ThreadLocal_unittest ThreadLocal_test.cc )
+target_link_libraries(ThreadLocal_unittest  muduo_base)
 
 add_executable ( ThreadPool_unittest ThreadPool_test.cc )
 target_link_libraries(ThreadPool_unittest  muduo_base)
