@@ -5,8 +5,8 @@
 #include "muduo/base/Thread.h"
 #include "muduo/base/CurrentThread.h"
 #include "muduo/base/Exception.h"
-#include "muduo/base/Timestamp.h"
-//#include "muduo/base/Logging.h"
+//#include "muduo/base/Timestamp.h"
+#include "muduo/base/Logging.h"
 
 #include <type_traits>
 
@@ -182,7 +182,7 @@ void Thread::start()
   {
     started_ = false;
     delete data; // or no delete?
-   // LOG_SYSFATAL << "Failed in pthread_create";
+    LOG_SYSFATAL << "Failed in pthread_create";
   }
   else
   {

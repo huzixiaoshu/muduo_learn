@@ -40,7 +40,7 @@ class Logger
         if(slash)
         {
           data_ = slash + 1;
-          size_t -= static_cast<int>(data_ - arr);
+          size_ -= static_cast<int>(data_ - arr);
         }
      }
 

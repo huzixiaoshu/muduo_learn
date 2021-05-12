@@ -2,9 +2,16 @@ set(base_SRCS
   CountDownLatch.cc
   Timestamp.cc
   Exception.cc
+  FileUtil.cc
+  LogFile.cc
+  Logging.cc 
+  LogStream.cc
   CurrentThread.cc
   Thread.cc
+  ProcessInfo.cc
   ThreadPool.cc
+  TimeZone.cc
+  Date.cc
   
   )
 
