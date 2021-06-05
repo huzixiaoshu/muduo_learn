@@ -33,7 +33,7 @@ class TimerQueue;
 class EventLoop : noncopyable
 {
     public:
-    typedef std::function<void()> Funcotr;
+    typedef std::function<void()> Functor;
 
     EventLoop();
     ~EventLoop(); // force out-line dtor, for std::unique_ptr members.
@@ -63,12 +63,12 @@ class EventLoop : noncopyable
   /// If in the same loop thread, cb is run within the function.
   /// Safe to call from other threads.
     
-    void runInLoop(Funcotr cb);
+    void runInLoop(Functor cb);
     /// Queues callback in the loop thread.
   /// Runs after finish pooling.
   /// Safe to call from other threads.
 
-  void queueInLoop(Funcotr cb);
+  void queueInLoop(Functor cb);
 
   size_t queueSize() const;
 

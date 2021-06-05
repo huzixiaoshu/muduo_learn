@@ -28,7 +28,7 @@ const int kPollTimeMs = 10000;
 int createEventfd()
 {
     int evtfd = ::eventfd(0,EFD_NONBLOCK | EFD_CLOEXEC);
-    if(eventfd < 0)
+    if(evtfd < 0)
     {
         LOG_SYSERR << "Failed in eventfd";
         abort();
@@ -261,7 +261,7 @@ void EventLoop::doPendingFunctors()
   {
     functor();
   }
-  callingPendingFunctors_ = false;
+  callingPendingFunctors_ = false ;
 }
 
 

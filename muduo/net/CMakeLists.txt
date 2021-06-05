@@ -6,9 +6,20 @@ if(NOT HAVE_ACCEPT4)
 endif()
 
 set(net_SRCS
-  Channel.cc
+
+Channel.cc
+
+EventLoop.cc
 
 
+Poller.cc
+
+
+SocketsOps.cc
+
+
+Timer.cc
+TimerQueue.cc
   )
 
 add_library(muduo_net ${net_SRCS})
@@ -22,8 +33,14 @@ install(TARGETS muduo_net DESTINATION lib)
 #install(TARGETS muduo_net_cpp11 DESTINATION lib)
 
 set(HEADERS
-   Channel.h
 
+Callbacks.h
+Channel.h
+Endian.h
+EventLoop.h
+
+
+TimerId.h
   )
 install(FILES ${HEADERS} DESTINATION include/muduo/net)
 
