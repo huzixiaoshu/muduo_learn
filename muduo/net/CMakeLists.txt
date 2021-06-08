@@ -11,6 +11,7 @@ Channel.cc
 
 EventLoop.cc
 
+InetAddress.cc
 
 Poller.cc
 
@@ -41,7 +42,7 @@ Callbacks.h
 Channel.h
 Endian.h
 EventLoop.h
-
+InetAddress.h
 
 TimerId.h
   )
